@@ -6,18 +6,29 @@
   <title>Yucata TS Calculator</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
   <link rel="stylesheet" href="style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
-
-  <p>Can't Stop: 932, 1303 // Carcassonne: 851, 1482 // Chakra: 975, 1414 // Hey, that's my fish: 780, 1802 // Machi Koro: 695, 1409 // Port Royal: 988, 1345 // Snowdonia: 643, 1516 // Sticky Fingers: 364, 1409 // Tally Ho: 546, 1492 // The Castles of Burgundy: 449, 1738</p>
-
   <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto calculate-form">
         <div class="card card-body text-center mt-5">
           <h1 class="heading display-5 pb-3">Yucata True Skill Calculator</h1>
+          <div>
+            <p></p>
+          </div>  
           <form id="loan-form">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Select Game</span>
+                </div>
+                <select id="game-dropdown" name="game">
+                </select>
+              </div>
+            </div>
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -43,7 +54,7 @@
                   placeholder="My TrueSkill"
                   />
               </div>
-	    </div>
+            </div>
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -56,7 +67,7 @@
                   placeholder="Their TrueSkill"
                   />
               </div>
-	    </div>
+            </div>
             <div class="form-group">
               <input
                 type="submit"
@@ -85,10 +96,11 @@
                   />
               </div>
             </div>
+           <h6>You win</h6>
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">You win:</span>
+                  <span class="input-group-text">You get:</span>
                 </div>
                 <input
                   type="number"
@@ -101,7 +113,21 @@
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">You lose:</span>
+                  <span class="input-group-text">They get:</span>
+                </div>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="you-win-them"
+                  disabled
+                  />
+              </div>
+            </div>
+            <h6>You lose</h6>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">You get:</span>
                 </div>
                 <input
                   type="number"
@@ -111,15 +137,25 @@
                   />
               </div>
             </div>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">They get:</span>
+                </div>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="you-lose-them"
+                  disabled
+                  />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script  src="calcWin.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script  src="calcWin.js"></script>
 </body>
 </html>
