@@ -1,161 +1,118 @@
 <!DOCTYPE html>
-<!-- Code By Webdevtrick ( https://webdevtrick.com )-->
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Yucata TS Calculator</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="style.css">
+<html lang="en">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Yucata TS Calculator</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="style.css">
 
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 mx-auto calculate-form">
-        <div class="card card-body text-center mt-5">
-          <h1 class="heading display-5 pb-3">Yucata True Skill Calculator</h1>
-          <div>
-            <p></p>
-          </div>  
-          <form id="loan-form">
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Select Game</span>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto calculate-form">
+          <div class="card card-body text-center mt-5">
+            <h1 class="heading display-5 pb-3">Yucata True Skill Calculator</h1>
+            <div>
+              <p></p>
+            </div>
+            <form id="loan-form">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Select Game</span>
+                  </div>
+                  <select id="game-dropdown" name="game">
+                  </select>
                 </div>
-                <select id="game-dropdown" name="game">
-                </select>
               </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Max TS</span>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Max TS</span>
+                  </div>
+                  <input type="number" class="form-control" id="max-ts" placeholder="Max TrueSkill" />
                 </div>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="max-ts"
-                  placeholder="Max TrueSkill"
-                  />
               </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">My TS</span>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">My TS</span>
+                  </div>
+                  <input type="number" class="form-control" id="my-ts" placeholder="My TrueSkill" />
                 </div>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="my-ts"
-                  placeholder="My TrueSkill"
-                  />
               </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Their TS</span>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Their TS</span>
+                  </div>
+                  <input type="number" class="form-control" id="their-ts" placeholder="Their TrueSkill" />
                 </div>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="their-ts"
-                  placeholder="Their TrueSkill"
-                  />
               </div>
-            </div>
-            <div class="form-group">
-              <input
-                type="submit"
-                value="Calculate"
-                class="btn btn-dark btn-block"
-                />
-            </div>
-          </form>
-          <!-- Loader -->
-          <div id="loading">
-            <img src="https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif" alt="loading"/>
-          </div>
-          <!-- Result -->
-          <div id="result">
-            <h5>Results</h5>
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Diff TS</span>
-                </div>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="diff-ts"
-                  disabled
-                  />
+              <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-dark btn-block" />
               </div>
+            </form>
+            <!-- Loader -->
+            <div id="loading">
+              <img src="https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif" alt="loading" />
             </div>
-           <h6>You win</h6>
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">You get:</span>
+            <!-- Result -->
+            <div id="result">
+              <h5>Results</h5>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Diff TS</span>
+                  </div>
+                  <input type="number" class="form-control" id="diff-ts" disabled />
                 </div>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="you-win"
-                  disabled
-                  />
               </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">They get:</span>
+              <h6>You win</h6>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">You get:</span>
+                  </div>
+                  <input type="number" class="form-control" id="you-win" disabled />
                 </div>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="you-win-them"
-                  disabled
-                  />
               </div>
-            </div>
-            <h6>You lose</h6>
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">You get:</span>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">They get:</span>
+                  </div>
+                  <input type="number" class="form-control" id="you-win-them" disabled />
                 </div>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="you-lose"
-                  disabled
-                  />
               </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">They get:</span>
+              <h6>You lose</h6>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">You get:</span>
+                  </div>
+                  <input type="number" class="form-control" id="you-lose" disabled />
                 </div>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="you-lose-them"
-                  disabled
-                  />
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">They get:</span>
+                  </div>
+                  <input type="number" class="form-control" id="you-lose-them" disabled />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script  src="calcWin.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="calcWin.js"></script>
+  </body>
+
 </html>
